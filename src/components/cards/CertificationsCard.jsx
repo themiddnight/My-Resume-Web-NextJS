@@ -10,10 +10,10 @@ import {
 import { TransitionGroup } from "react-transition-group";
 import { CardMembershipRounded } from "@mui/icons-material";
 import { useState, useEffect } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 import { convertDate } from "../../utils/utils";
-// import { Image } from "../styled/Image";
+import { Image } from "../styled/Image";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
@@ -85,9 +85,9 @@ export default function CertificationsCard({ data }) {
                   <Image
                     src={`${cert.image_url}`}
                     alt={cert.title}
-                    layout="fill"
-                    objectFit="cover"
-                    loading="lazy"
+                    width="100%"
+                    height="100%"
+                    style={{ cursor: "pointer" }}
                   />
                 </Box>}
                 <Box display={"flex"} flexDirection={"column"}>

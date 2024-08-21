@@ -22,7 +22,6 @@ import {
   YouTube,
   LanguageRounded,
 } from "@mui/icons-material";
-import Image from "next/image";
 
 const LinkIcon = (title) => {
   switch (title) {
@@ -52,24 +51,11 @@ export default function ProfileCard({ data = {} }) {
             flexDirection: { xs: "column", md: "row" },
           }}
         >
-          <Box
-            width={140}
-            height={140}
-            sx={{ 
-              position: 'relative', 
-              borderRadius: '50%', 
-              overflow: 'hidden', 
-              boxShadow: 3 
-            }}
-          >
-            <Image
-              src={`${data.image_url}`}
-              alt={`${data.title}'s profile picture`}
-              layout="fill"
-              objectFit="cover"
-              loading="lazy"
-            />
-          </Box>
+          <Avatar
+            alt={`${data.title}'s profile picture`}
+            src={data.image_url}
+            sx={{ width: 140, height: 140, boxShadow: 3 }}
+          />
           <Box
             sx={{
               display: "flex",
@@ -77,13 +63,12 @@ export default function ProfileCard({ data = {} }) {
               flexBasis: 0,
               flexGrow: 1,
               textAlign: { xs: "center", md: "left" },
-              zIndex: 1,
             }}
           >
             <Typography
-              variant="h1"
+              variant="h4"
               component="h1"
-              fontWeight={"bold"}
+              fontWeight="bold"
               style={{
                 fontSize: 36,
                 padding: 0,

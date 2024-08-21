@@ -1,10 +1,13 @@
 const frontendApiKey = '8db83ff1-58cf-4ffe-b20a-d5b34adf3c76';
 const apiUrl = "https://app-3whecoq62a-uc.a.run.app/v1";
+// const frontendApiKey = process.env.API_KEY;
+// const apiUrl = process.env.API_URL;
 
 // User API
 export async function fetchUser() {
   try {
     const response = await fetch(`${apiUrl}/user?key=${frontendApiKey}`, {
+      cache: "no-store",
       headers: {
         "Authorization": localStorage.getItem("token"),
       },
@@ -117,7 +120,7 @@ export async function deleteUser(password) {
 // Resume API
 export async function fetchResumeData(resumeId) {
   try {
-    const response = await fetch(`${apiUrl}/resume/${resumeId}?key=${frontendApiKey}`);
+    const response = await fetch(`${apiUrl}/resume/${resumeId}?key=${frontendApiKey}`, { cache: "no-store" });
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -135,6 +138,7 @@ export async function fetchResumeData(resumeId) {
 export async function fetchResumeSummary(resumeId) {
   try {
     const response = await fetch(`${apiUrl}/resume/${resumeId}/summary?key=${frontendApiKey}`, {
+      cache: "no-store",
       headers: {
         "Authorization": localStorage.getItem("token"),
       },
@@ -237,6 +241,7 @@ export async function deleteResume(resumeId) {
 export async function fetchResumeSectionData(resumeId, section) { // profile, about, education etc.
   try {
     const response = await fetch(`${apiUrl}/edit/${resumeId}/${section}?key=${frontendApiKey}`, {
+      cache: "no-store",
       headers: {
         "Authorization": localStorage.getItem("token"),
       },
@@ -289,7 +294,7 @@ export async function updateResumeSectionData(resumeId, section, data) {
 // Public Notes API
 export async function fetchNewNotes(resumeId) {
   try {
-    const response = await fetch(`${apiUrl}/public_notes/${resumeId}/public_notes?key=${frontendApiKey}`);
+    const response = await fetch(`${apiUrl}/public_notes/${resumeId}/public_notes?key=${frontendApiKey}`, { cache: "no-store" });
     if (response.ok) {
       const data = await response.json();
       return data;

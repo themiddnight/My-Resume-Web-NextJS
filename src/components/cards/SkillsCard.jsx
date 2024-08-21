@@ -11,9 +11,9 @@ import { TransitionGroup } from "react-transition-group";
 import { TipsAndUpdatesRounded } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Image from "next/image";
+// import Image from "next/image";
 
-// import { Image } from "../styled/Image";
+import { Image } from "../styled/Image";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
@@ -64,8 +64,7 @@ export default function SkillsCard({ data }) {
                     alt={item.title}
                     width={iconSize}
                     height={iconSize}
-                    loading="lazy"
-                    className={item.is_mono ? "svg-invert icon" : "icon"}
+                    className={item.is_mono ? "svg-invert" : ""}
                   />
                 </Box>}
                 <Box width={"100%"}>

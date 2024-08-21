@@ -11,8 +11,8 @@ import {
 import { CategoryRounded } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 
-// import { Image } from "../styled/Image";
-import Image from "next/image";
+import { Image } from "../styled/Image";
+// import Image from "next/image";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
@@ -65,25 +65,14 @@ export default function CollectionsCard({ data }) {
               }
             >
               {item.image_url ? (
-                <Box
-                  width={null}
-                  height={null}
-                  sx={{
-                    transition: "transform 0.3s",
-                    '&:hover': { transform: "scale(1.2)" },
-                  }}
-                >
-                  <Image
-                    src={`${item.image_url}`}
-                    alt={item.title}
-                    width={35}
-                    height={35}
-                    layout={null}
-                    objectFit={null}
-                    loading="lazy"
-                    className={item.is_mono ? "svg-invert icon" : "icon"}
-                  />
-                </Box>
+                <Image
+                  src={`${item.image_url}`}
+                  alt={item.icon}
+                  width={35}
+                  height={35}
+                  className={item.is_mono ? "svg-invert icon" : "icon"}
+                  zoomed
+                />
               ) : (
                 <Typography component='h4'>{item.title}</Typography>
               )}

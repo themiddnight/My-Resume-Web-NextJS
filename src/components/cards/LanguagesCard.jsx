@@ -42,7 +42,7 @@ const LanguageItem = ({ label, icon, value }) => {
         {icon}
       </CircularProgressWithLabel>
       <Typography>{label}</Typography>
-      <Typography textAlign={'center'} fontWeight={"light"} fontSize={'small'} fontStyle={'italic'}>{level}</Typography>
+      <Typography textAlign={'center'} fontWeight={"light"} fontSize={'small'} fontStyle={'italic'}>{getLevel(value)}</Typography>
     </Box>
   )
 }
