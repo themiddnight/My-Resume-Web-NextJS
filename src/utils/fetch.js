@@ -1,7 +1,5 @@
-const frontendApiKey = '8db83ff1-58cf-4ffe-b20a-d5b34adf3c76';
-const apiUrl = "https://app-3whecoq62a-uc.a.run.app/v1";
-// const frontendApiKey = process.env.API_KEY;
-// const apiUrl = process.env.API_URL;
+const frontendApiKey = process.env.NEXT_PUBLIC_API_KEY;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 // User API
 export async function fetchUser() {

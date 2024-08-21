@@ -60,7 +60,7 @@ export default function ProfileCard({ data = {} }) {
             sx={{
               display: "flex",
               flexDirection: "column",
-              flexBasis: 0,
+              flexBasis: 200,
               flexGrow: 1,
               textAlign: { xs: "center", md: "left" },
             }}

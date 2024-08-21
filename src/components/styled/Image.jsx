@@ -1,6 +1,6 @@
 import { styled } from "@mui/system";
 
-export const Image = styled("img")(({ zoomed }) => ({
+export const Image = styled("img")(({ zoomed = false }) => ({
   objectFit: "cover",
   transition: "transform 0.3s",
   "&:hover": {

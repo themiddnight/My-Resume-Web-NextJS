@@ -155,10 +155,6 @@ const ProjectContent = ({ data, display_mode }) => {
               position={'absolute'}
               width={"100%"}
               height={"100%"}
-              sx={{
-                transition: "transform 0.3s",
-                '&:hover': { transform: "scale(1.1)" },
-              }}
             >
               <Image
                 src={`${data.image_url}`}

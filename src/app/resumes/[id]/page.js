@@ -48,7 +48,7 @@ export default async function HomePage({ params }) {
   if (data.settings.layout === 0) {
     return (
       <Themes bg={data.settings.background}>
-        <Box>
+        <main>
           <Container maxWidth="xl" sx={{ py: {xs: 2, sm: 3, xl: 8} }}>
             <Box display="grid" gridTemplateColumns="repeat(10, 1fr)" gap={2.5}>
               <Box
@@ -80,7 +80,7 @@ export default async function HomePage({ params }) {
               </Box>
             </Box>
           </Container>
-        </Box>
+        </main>
         {/* <ImageModal /> */}
       </Themes>
     )
@@ -88,7 +88,7 @@ export default async function HomePage({ params }) {
 
   return (
     <Themes bg={data.settings.background}>
-      <Box>
+      <main>
         <Container maxWidth="xl" sx={{ py: {xs: 2, sm: 3, xl: 8} }}>
           <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2.5}>
             <Box
@@ -143,7 +143,7 @@ export default async function HomePage({ params }) {
             </Box>
           </Box>
         </Container>
-      </Box>
+      </main>
       {/* <ImageModal /> */}
     </Themes>
   );
