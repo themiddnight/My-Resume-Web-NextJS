@@ -18,18 +18,19 @@ import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
 export default function SkillsCard({ data }) {
+  const activeData = data.data.filter(item => item.active);
   const iconSize = 30;
   const [isLimit, setIsLimit] = useState(true);
-  const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
+  // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
 
-  useEffect(() => {
-    setActiveData(data.data.filter(item => item.active));
-  }, [data.data]);
+  // useEffect(() => {
+  //   setActiveData(data.data.filter(item => item.active));
+  // }, [data.data]);
 
-  useEffect(() => {
-    setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
-  }, [isLimit, activeData, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
+  // }, [isLimit, activeData, data.display_limit]);
 
   return (
     <Card>

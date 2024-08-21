@@ -15,7 +15,6 @@ import {
 } from "@mui/icons-material";
 import { TransitionGroup } from "react-transition-group";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 import CircularProgressWithLabel from "../elements/CircularProgressWithLabel";
 import CardHeader from "../elements/CardHeader";
@@ -33,9 +32,9 @@ const LanguageItem = ({ label, icon, value }) => {
     else return "Native";
   }
 
-  useEffect(() => {
-    setLevel(getLevel(value));
-  }, [value]);
+  // useEffect(() => {
+  //   setLevel(getLevel(value));
+  // }, [value]);
 
   return (
     <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} width={76}>
@@ -49,17 +48,18 @@ const LanguageItem = ({ label, icon, value }) => {
 }
 
 export default function LanguagesCard({ data }) {
+  const activeData = data.data.filter(item => item.active);
   const [isLimit, setIsLimit] = useState(true);
-  const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
+  // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
 
-  useEffect(() => {
-    setActiveData(data.data.filter(item => item.active));
-  }, [data.data]);
+  // useEffect(() => {
+  //   setActiveData(data.data.filter(item => item.active));
+  // }, [data.data]);
 
-  useEffect(() => {
-    setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
-  }, [isLimit, activeData, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
+  // }, [isLimit, activeData, data.display_limit]);
 
   return (
     <Card>
@@ -107,13 +107,3 @@ export default function LanguagesCard({ data }) {
     </Card>
   );
 }
-
-LanguagesCard.propTypes = {
-  data: PropTypes.object,
-};
-
-LanguageItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
-  value: PropTypes.number.isRequired,
-};

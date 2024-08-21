@@ -4,7 +4,6 @@ import { OpenInNew, AppsRounded } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import { TransitionGroup } from "react-transition-group";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import Image from "next/image";
 
 // import { Image } from "../styled/Image";
@@ -14,17 +13,18 @@ import MoreButtonSection from "../elements/MoreButton";
 
 export default function ProjectsCard({ data }) {
   const theme = useTheme();
+  const activeData = data.data.filter(item => item.active);
   const [isLimit, setIsLimit] = useState(true);
-  const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
+  // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
 
-  useEffect(() => {
-    setActiveData(data.data.filter(item => item.active));
-  }, [data.data]);
+  // useEffect(() => {
+  //   setActiveData(data.data.filter(item => item.active));
+  // }, [data.data]);
 
-  useEffect(() => {
-    setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
-  }, [isLimit, activeData, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
+  // }, [isLimit, activeData, data.display_limit]);
 
   return (
     <Card>
@@ -218,13 +218,3 @@ const ProjectContent = ({ data, display_mode }) => {
     </>
   )
 }
-
-
-ProjectsCard.propTypes = {
-  data: PropTypes.object,
-};
-
-ProjectContent.propTypes = {
-  data: PropTypes.object,
-  display_mode: PropTypes.number.isRequired,
-};

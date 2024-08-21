@@ -1,5 +1,4 @@
 import { Box, CircularProgress } from "@mui/material";
-import { PropTypes } from "prop-types";
 
 export default function CircularProgressWithLabel({ children, value }) {
   return (
@@ -36,8 +35,3 @@ export default function CircularProgressWithLabel({ children, value }) {
     </Box>
   );
 }
-
-CircularProgressWithLabel.propTypes = {
-  children: PropTypes.node,
-  value: PropTypes.number.isRequired,
-};

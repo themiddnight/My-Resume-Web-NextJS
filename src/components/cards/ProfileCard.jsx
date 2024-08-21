@@ -1,4 +1,3 @@
-'use client';
 import {
   Box,
   Avatar,
@@ -23,7 +22,6 @@ import {
   YouTube,
   LanguageRounded,
 } from "@mui/icons-material";
-import PropTypes from "prop-types";
 import Image from "next/image";
 
 const LinkIcon = (title) => {
@@ -144,7 +142,3 @@ export default function ProfileCard({ data = {} }) {
     </Card>
   );
 }
-
-ProfileCard.propTypes = {
-  data: PropTypes.object.isRequired,
-};

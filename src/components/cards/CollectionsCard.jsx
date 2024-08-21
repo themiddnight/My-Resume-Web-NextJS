@@ -10,7 +10,6 @@ import {
 // import { TransitionGroup } from "react-transition-group";
 import { CategoryRounded } from "@mui/icons-material";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 // import { Image } from "../styled/Image";
 import Image from "next/image";
@@ -18,13 +17,15 @@ import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
 export default function CollectionsCard({ data }) {
+  const activeData = data.data.filter(item => item.active);
   const [isLimit, setIsLimit] = useState(true);
-  const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
+  // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
-  const [groupData, setGroupData] = useState(() => {
-    const newGroup = data.data.map(item => item.group).filter(item => item);
-    return [...new Set(newGroup)];
-  })
+  const groupData = [...new Set(activeData.map(item => item.group).filter(item => item))];
+  // const [groupData, setGroupData] = useState(() => {
+  //   const newGroup = data.data.map(item => item.group).filter(item => item);
+  //   return [...new Set(newGroup)];
+  // })
 
   const GroupSection = ({ title, moreCount, data }) => {
     return (
@@ -92,23 +93,18 @@ export default function CollectionsCard({ data }) {
       </Box>
     );
   }
-  GroupSection.propTypes = {
-    title: PropTypes.string,
-    moreCount: PropTypes.number,
-    data: PropTypes.array,
-  };
 
-  useEffect(() => {
-    setActiveData(data.data.filter(item => item.active));
-    setGroupData(() => {
-      const newGroup = data.data.map(item => item.group).filter(item => item);
-      return [...new Set([...newGroup])];
-    });
-  }, [data.data]);
+  // useEffect(() => {
+  //   setActiveData(data.data.filter(item => item.active));
+  //   setGroupData(() => {
+  //     const newGroup = data.data.map(item => item.group).filter(item => item);
+  //     return [...new Set([...newGroup])];
+  //   });
+  // }, [data.data]);
 
-  useEffect(() => {
-    setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
-  }, [isLimit, activeData, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
+  // }, [isLimit, activeData, data.display_limit]);
 
   return (
     <Card>
@@ -160,7 +156,3 @@ export default function CollectionsCard({ data }) {
     </Card>
   );
 }
-
-CollectionsCard.propTypes = {
-  data: PropTypes.object,
-};

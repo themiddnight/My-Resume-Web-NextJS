@@ -3,24 +3,24 @@ import { Card, CardContent, Divider, Typography, Collapse, Box } from "@mui/mate
 import { WorkRounded } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import { TransitionGroup } from "react-transition-group";
-import PropTypes from "prop-types";
 
 import { convertDate } from "../../utils/utils";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
 export default function ExperienceCard({ data }) {
+  const activeData = data.data.filter(item => item.active);
   const [isLimit, setIsLimit] = useState(true);
-  const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
+  // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
 
-  useEffect(() => {
-    setActiveData(data.data.filter(item => item.active));
-  }, [data.data]);
+  // useEffect(() => {
+  //   setActiveData(data.data.filter(item => item.active));
+  // }, [data.data]);
 
-  useEffect(() => {
-    setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
-  }, [isLimit, activeData, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
+  // }, [isLimit, activeData, data.display_limit]);
 
   return (
     <Card>
@@ -72,7 +72,3 @@ export default function ExperienceCard({ data }) {
     </Card>
   );
 }
-
-ExperienceCard.propTypes = {
-  data: PropTypes.object,
-};

@@ -13,7 +13,6 @@ import {
 import { TransitionGroup } from "react-transition-group";
 import { LinkRounded, OpenInNewRounded } from "@mui/icons-material";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
@@ -22,9 +21,9 @@ export default function OtherProfileCard({ data }) {
   const [isLimit, setIsLimit] = useState(true);
   const [limitedData, setLimitedData] = useState(data.data.slice(0, data.display_limit));
 
-  useEffect(() => {
-    setLimitedData(data.data.slice(0, isLimit ? data.display_limit : data.data.length));
-  }, [isLimit, data.data, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(data.data.slice(0, isLimit ? data.display_limit : data.data.length));
+  // }, [isLimit, data.data, data.display_limit]);
 
   return (
     <Card>
@@ -63,7 +62,3 @@ export default function OtherProfileCard({ data }) {
     </Card>
   );
 }
-
-OtherProfileCard.propTypes = {
-  data: PropTypes.object.isRequired,
-};

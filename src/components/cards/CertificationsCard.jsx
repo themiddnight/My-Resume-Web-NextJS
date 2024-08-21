@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 import { CardMembershipRounded } from "@mui/icons-material";
-import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -19,8 +18,9 @@ import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
 export default function CertificationsCard({ data }) {
+  const activeData = data.data.filter(item => item.active);
   const [isLimit, setIsLimit] = useState(true);
-  const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
+  // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
 
   function handleOpenModal(e) {
@@ -30,13 +30,13 @@ export default function CertificationsCard({ data }) {
     // setIsImageModalOpen(true);
   }
 
-  useEffect(() => {
-    setActiveData(data.data.filter(item => item.active));
-  }, [data.data]);
+  // useEffect(() => {
+  //   setActiveData(data.data.filter(item => item.active));
+  // }, [data.data]);
 
-  useEffect(() => {
-    setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
-  }, [isLimit, activeData, data.display_limit]);
+  // useEffect(() => {
+  //   setLimitedData(activeData.slice(0, isLimit ? data.display_limit : activeData.length));
+  // }, [isLimit, activeData, data.display_limit]);
 
   return (
     <Card>
@@ -122,7 +122,3 @@ export default function CertificationsCard({ data }) {
     </Card>
   );
 }
-
-CertificationsCard.propTypes = {
-  data: PropTypes.object,
-};
