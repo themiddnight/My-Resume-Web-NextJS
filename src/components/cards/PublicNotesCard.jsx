@@ -25,7 +25,7 @@ export default function PublicNotesCard({ resumeId, data }) {
   const [isPosting, setIsPosting] = useState(false);
   const [isPosted, setIsPosted] = useState(false);
   const [newPostedId, setNewPostedId] = useState("");
-  const [noteHeight, setNoteHeight] = useState(30);
+  // const [noteHeight, setNoteHeight] = useState(30);
 
   async function handleSend() {
     setIsPosted(false);
@@ -47,11 +47,11 @@ export default function PublicNotesCard({ resumeId, data }) {
     fetchNewNotes(resumeId).then((data) => setNotesData(data));
   }, [resumeId]);
 
-  useEffect(() => {
-    if (noteRef.current) {
-      setNoteHeight(noteRef.current.offsetHeight);
-    }
-  }, [notesData]);
+  // useEffect(() => {
+  //   if (noteRef.current) {
+  //     setNoteHeight(noteRef.current.offsetHeight);
+  //   }
+  // }, [notesData]);
 
   return (
     <Card>
@@ -69,7 +69,7 @@ export default function PublicNotesCard({ resumeId, data }) {
           pb={1}
           px={3}
           mx={{ xs: -1, sm: 0 }}
-          height={noteHeight * data.display_limit + 40}
+          height={200}
           position={"relative"}
           overflow={"scroll"}
           borderRadius={"10px"}

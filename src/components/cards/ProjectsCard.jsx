@@ -59,7 +59,7 @@ export default function ProjectsCard({ data }) {
                 overflow={"hidden"}
                 boxShadow={{ xs: 1, lg: 0 }}
                 bgcolor={ theme.palette.mode === "dark" ? { xs: "#44444466", lg: 'transparent' } : { xs: "#cccccc88", lg: "transparent" } }
-                border={"1px solid #00000011"}
+                // border={"1px solid #00000011"}
               >
                 <ProjectContent data={project} display_mode={data.display_mode} />
               </Box>
@@ -112,7 +112,7 @@ export default function ProjectsCard({ data }) {
               overflow={"hidden"}
               boxShadow={1}
               bgcolor={ theme.palette.mode === "dark" ? "#44444488" : "#cccccc88" }
-              border={"1px solid #00000011"}
+              // border={"1px solid #00000011"}
               sx={{
                 display: project.active ? "flex" : "none",
                 scrollSnapAlign: { xs: "center", md: "start" },

@@ -72,7 +72,7 @@ export default function Themes({ children, bg = {} }) {
       },
       typography: {
         fontFamily: carlito.style.fontFamily,
-        htmlFontSize: 14,
+        htmlFontSize: 16,
       },
       breakpoints: {
         values: {
