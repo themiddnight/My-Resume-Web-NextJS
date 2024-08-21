@@ -1,14 +1,14 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 
-import "./globals.css";
+import "@/app/globals.css";
 import Themes from '@/utils/themes';
 
-export default function RootLayout({ children }) {
+export default function CreateLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-          <Themes bg={{ mode: 1 }}>
+          <Themes bg={{ mode: 2 }}>
             {children}
           </Themes>
         </AppRouterCacheProvider>

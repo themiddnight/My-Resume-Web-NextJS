@@ -1,95 +1,42 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Container, Typography, Button, Divider, Stack } from "@mui/material";
+import { NorthEastRounded } from "@mui/icons-material";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Home - Resume Website",
+  description: "This is the home page of the resume website.",
+};
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main>
+      <Container sx={{ height: '100dvh' }}>
+        <Stack direction='column' spacing={5} justifyContent='center' height='100%' divider={<Divider flexItem/>}>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <Stack direction='column'>
+            <Typography variant="h1" component="h1" fontWeight='bold' sx={{ fontSize: { xs: 56, sm: 96} }}>
+              Greetings!
+            </Typography>
+            <Typography variant="h2" component="h2" lineHeight={1} gutterBottom sx={{ fontSize: { xs: 40, sm: 64} }}>
+              This is a resume website.
+            </Typography>
+            <Typography variant="p" component="p">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem cupiditate iusto quaerat enim impedit sit modi fuga, est illo, ducimus laboriosam, harum deserunt nostrum. Cumque, labore quasi. 
+            </Typography>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          </Stack>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          <Stack direction={{xs: 'column', sm: 'row'}} spacing={2}>
+            <Link href="resumes/themiddnight-dev">
+              <Button variant="contained" size='large'>View My Resume</Button>
+            </Link>
+            <Link href="/create">
+              <Button variant='outlined' size='large' endIcon={<NorthEastRounded/>}>Create Yours</Button>
+            </Link>
+          </Stack>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        </Stack>
+      </Container>
     </main>
   );
 }
