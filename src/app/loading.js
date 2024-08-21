@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function EditPage() {
   return (
@@ -8,10 +8,12 @@ export default function EditPage() {
       alignItems={"center"}
       justifyContent={"center"}
       height={"100dvh"}
+      gap={2}
     >
       <span className="loader"/>
-      <h1>Create page</h1>
-      <a href="/">Back home</a>
+      <Typography variant='body1' sx={{ opacity: 0.5 }}>
+        Chop chop! server!!
+      </Typography>
     </Box>
   );
 }

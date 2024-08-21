@@ -120,11 +120,9 @@ export default function Themes({ children, bg = {} }) {
               backgroundColor: prefersDarkMode ? "#000000dd" : "#ffffffdd",
               backgroundImage: "none",
               backdropFilter: "blur(10px)",
-              transform: "scale(1)",
               transition: "all 0.3s",
               '&:hover': {
                 boxShadow: "0 5px 15px 0 rgba(0, 0, 0, 0.5), inset 0 0 50px 0 rgba(0, 0, 0, 0.05)",
-                transform: "scale(1.01)",
               },
             },
           },

@@ -20,10 +20,24 @@ import PublicNotesCard from "@/components/cards/PublicNotesCard";
 export async function generateMetadata({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
   const data = await fetchResumeData(resumeId);
+  const image_url = "https://firebasestorage.googleapis.com/v0/b/my-resume-website-ddda8.appspot.com/o/public%2Fthumbnail.jpg?alt=media&token=0231f8a1-43e5-4b37-a2b3-17c934b8a36f";
+  const url = `https://themiddnight-resume.vercel.app/resumes/${resumeId}`;
 
   return {
     title: `${data.profile.title}'s Resume`,
     description: data.about.data[0].content || `Check out ${data.profile.title}'s resume!`,
+    openGraph: {
+      title: `${data.profile.title}'s Resume`,
+      description: data.about.data[0].content || `Check out ${data.profile.title}'s resume!`,
+      url,
+      images: image_url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@themiddnight",
+      images: image_url,
+    },
   };
 }
 

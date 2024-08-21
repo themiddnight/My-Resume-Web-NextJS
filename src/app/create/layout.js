@@ -5,14 +5,10 @@ import Themes from '@/utils/themes';
 
 export default function CreateLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <AppRouterCacheProvider>
-          <Themes bg={{ mode: 2 }}>
-            {children}
-          </Themes>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider>
+      <Themes bg={{ mode: 2 }}>
+        {children}
+      </Themes>
+    </AppRouterCacheProvider>
   );
 }
