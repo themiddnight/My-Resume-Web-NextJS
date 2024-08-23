@@ -20,15 +20,18 @@ import PublicNotesCard from "@/components/cards/PublicNotesCard";
 export async function generateMetadata({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
   const data = await fetchResumeData(resumeId);
-  const image_url = "https://firebasestorage.googleapis.com/v0/b/my-resume-website-ddda8.appspot.com/o/public%2Fthumbnail.jpg?alt=media&token=0231f8a1-43e5-4b37-a2b3-17c934b8a36f";
+
+  const title = `${data.profile.title}'s ${data.summary.resume_name} - My Resume`;
+  const description = data.about.data[0].content || `Check out ${data.profile.title}'s resume!`;
   const url = `https://themiddnight-resume.vercel.app/resumes/${resumeId}`;
+  const image_url = `/api?title=${data.profile.title}&subtitle=${data.summary.resume_name}`
 
   return {
-    title: `${data.profile.title}'s Resume`,
-    description: data.about.data[0].content || `Check out ${data.profile.title}'s resume!`,
+    title,
+    description,
     openGraph: {
-      title: `${data.profile.title}'s Resume`,
-      description: data.about.data[0].content || `Check out ${data.profile.title}'s resume!`,
+      title,
+      description,
       url,
       images: image_url,
       type: "website",
@@ -48,6 +51,7 @@ export default async function HomePage({ params }) {
   if (data.settings.layout === 0) {
     return (
       <Themes bg={data.settings.background}>
+        <IntroScreen data={data.settings} />
         <main>
           <Container maxWidth="xl" sx={{ py: {xs: 2, sm: 3, xl: 8} }}>
             <Box display="grid" gridTemplateColumns="repeat(10, 1fr)" gap={2.5}>
@@ -57,12 +61,12 @@ export default async function HomePage({ params }) {
                 flexDirection="column"
                 gap={2.5}
               >
-                <Box className={'card1'}><ProfileCard data={data.profile} /></Box>
-                {data.about.active && <Box className={'card2'}><AboutCard data={data.about} /></Box>}
-                {data.experiences.active && <Box className={'card3'}><ExperienceCard data={data.experiences} /></Box>}
-                {data.education.active && <Box className={'card4'}><EducationCard data={data.education} /></Box>}
-                {data.languages.active && <Box className={'card5'} display={{ xs:'none', sm: 'block'}}><LanguagesCard data={data.languages} /></Box>}
-                {data.public_notes.active && <Box className={'card7'} display={{ xs:'none', sm: 'block'}}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
+                <Box><ProfileCard data={data.profile} /></Box>
+                {data.about.active && <Box><AboutCard data={data.about} /></Box>}
+                {data.experiences.active && <Box><ExperienceCard data={data.experiences} /></Box>}
+                {data.education.active && <Box><EducationCard data={data.education} /></Box>}
+                {data.languages.active && <Box display={{ xs:'none', sm: 'block'}}><LanguagesCard data={data.languages} /></Box>}
+                {data.public_notes.active && <Box display={{ xs:'none', sm: 'block'}}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
               </Box>
               <Box
                 gridColumn={{ xs: "span 10", sm: "span 5", lg: "span 6" }}
@@ -70,13 +74,13 @@ export default async function HomePage({ params }) {
                 flexDirection="column"
                 gap={2.5}
                 >
-                {data.projects.active && <Box className={'card2'}><ProjectsCard data={data.projects} /></Box>}
-                {data.skills.active && <Box className={'card3'}><SkillsCard data={data.skills} /></Box>}
-                {data.collections.active && <Box className={'card4'}><CollectionsCard data={data.collections} /></Box>}
-                {data.languages.active && <Box className={'card5'} display={{ xs:'blodk', sm: 'none'}}><LanguagesCard data={data.languages} /></Box>}
-                {data.certifications.active && <Box className={'card6'}><CertificationsCard data={data.certifications} /></Box>}
-                {data.other_links.active && <Box className={'card7'}><OtherProfileCard data={data.other_links} /></Box>}
-                {data.public_notes.active && <Box className={'card7'} display={{ xs:'blodk', sm: 'none'}}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
+                {data.projects.active && <Box><ProjectsCard data={data.projects} /></Box>}
+                {data.skills.active && <Box><SkillsCard data={data.skills} /></Box>}
+                {data.collections.active && <Box><CollectionsCard data={data.collections} /></Box>}
+                {data.languages.active && <Box display={{ xs:'blodk', sm: 'none'}}><LanguagesCard data={data.languages} /></Box>}
+                {data.certifications.active && <Box><CertificationsCard data={data.certifications} /></Box>}
+                {data.other_links.active && <Box><OtherProfileCard data={data.other_links} /></Box>}
+                {data.public_notes.active && <Box display={{ xs:'blodk', sm: 'none'}}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
               </Box>
             </Box>
           </Container>
@@ -88,6 +92,7 @@ export default async function HomePage({ params }) {
 
   return (
     <Themes bg={data.settings.background}>
+      <IntroScreen data={data.settings} />
       <main>
         <Container maxWidth="xl" sx={{ py: {xs: 2, sm: 3, xl: 8} }}>
           <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2.5}>
@@ -97,13 +102,13 @@ export default async function HomePage({ params }) {
               flexDirection="column"
               gap={2.5}
             >
-              <Box className={'card1'}><ProfileCard data={data.profile} /></Box>
-              {data.about.active && <Box className={'card2'}><AboutCard data={data.about} /></Box>}
-              {data.experiences.active && <Box className={'card3'}><ExperienceCard data={data.experiences} /></Box>}
-              {data.education.active && <Box className={'card4'}><EducationCard data={data.education} /></Box>}
-              {data.languages.active && <Box className={'card5'} display={{ xs:'none', sm: 'block', lg: 'none' }}><LanguagesCard data={data.languages} /></Box>}
-              {data.other_links.active && <Box className={'card7'} display={{ xs: 'none', sm: 'block', lg: 'none' }}><OtherProfileCard data={data.other_links} /></Box>}
-              {data.public_notes.active && <Box className={'card7'} display={{ xs: 'none', sm: 'block', lg: 'block' }}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
+              <Box><ProfileCard data={data.profile} /></Box>
+              {data.about.active && <Box><AboutCard data={data.about} /></Box>}
+              {data.experiences.active && <Box><ExperienceCard data={data.experiences} /></Box>}
+              {data.education.active && <Box><EducationCard data={data.education} /></Box>}
+              {data.languages.active && <Box display={{ xs:'none', sm: 'block', lg: 'none' }}><LanguagesCard data={data.languages} /></Box>}
+              {data.other_links.active && <Box display={{ xs: 'none', sm: 'block', lg: 'none' }}><OtherProfileCard data={data.other_links} /></Box>}
+              {data.public_notes.active && <Box display={{ xs: 'none', sm: 'block', lg: 'block' }}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
             </Box>
 
             <Box
@@ -112,7 +117,7 @@ export default async function HomePage({ params }) {
               flexDirection="column"
               gap={2.5}
             >
-              {data.projects.active && <Box className={'card2'}><ProjectsCard data={data.projects} /></Box>}
+              {data.projects.active && <Box><ProjectsCard data={data.projects} /></Box>}
 
               <Box display="grid" gridTemplateColumns={{ sm: '1fr', md: '1fr 1fr'}} gap={2.5}>
                 <Box
@@ -121,8 +126,8 @@ export default async function HomePage({ params }) {
                   flexDirection="column"
                   gap={2.5}
                 >
-                  {data.skills.active && <Box className={'card3'}><SkillsCard data={data.skills} /></Box>}
-                  {data.languages.active && <Box className={'card4'} display={{ xs: 'none', sm: 'none', lg: 'block' }}><LanguagesCard data={data.languages} /></Box>}
+                  {data.skills.active && <Box><SkillsCard data={data.skills} /></Box>}
+                  {data.languages.active && <Box display={{ xs: 'none', sm: 'none', lg: 'block' }}><LanguagesCard data={data.languages} /></Box>}
                 </Box>
 
                 <Box
@@ -131,11 +136,11 @@ export default async function HomePage({ params }) {
                   flexDirection="column"
                   gap={2.5}
                 >
-                  {data.collections.active && <Box className={'card4'}><CollectionsCard data={data.collections} /></Box>}
-                  {data.languages.active && <Box className={'card4'} display={{ xs: 'block', sm: 'none', lg: 'none' }}><LanguagesCard data={data.languages} /></Box>}
-                  {data.certifications.active && <Box className={'card6'}><CertificationsCard data={data.certifications} /></Box>}
-                  {data.other_links.active && <Box className={'card7'} display={{ xs: 'block', sm: 'none', lg: 'block' }}><OtherProfileCard data={data.other_links} /></Box>}
-                  {data.public_notes.active && <Box className={'card7'} display={{ xs: 'block', sm: 'none', lg: 'none' }}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
+                  {data.collections.active && <Box><CollectionsCard data={data.collections} /></Box>}
+                  {data.languages.active && <Box display={{ xs: 'block', sm: 'none', lg: 'none' }}><LanguagesCard data={data.languages} /></Box>}
+                  {data.certifications.active && <Box><CertificationsCard data={data.certifications} /></Box>}
+                  {data.other_links.active && <Box display={{ xs: 'block', sm: 'none', lg: 'block' }}><OtherProfileCard data={data.other_links} /></Box>}
+                  {data.public_notes.active && <Box display={{ xs: 'block', sm: 'none', lg: 'none' }}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
                 </Box>
                 
               </Box>

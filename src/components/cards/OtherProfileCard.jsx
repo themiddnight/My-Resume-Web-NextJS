@@ -38,15 +38,15 @@ export default function OtherProfileCard({ data }) {
 
         <TransitionGroup component={List}>
           {limitedData.map((item, index) => (
-            <Collapse key={index} component={ListItem}>
-              <Box display={'flex'} sx={{ py: 0.5 }}>
+            <Collapse key={index}>
+              <ListItem display={'flex'} sx={{ py: 0.5 }}>
                 <Link href={item.url} target="_blank" rel="noopener noreferrer">
                   {item.title}
                 </Link>
                 <ListItemIcon sx={{ mx: 1 }}>
                   <OpenInNewRounded fontSize="small" color="primary" />
                 </ListItemIcon>
-              </Box>
+              </ListItem>
             </Collapse>
           ))}
         </TransitionGroup>

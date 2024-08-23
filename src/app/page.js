@@ -5,8 +5,9 @@ import Link from "next/link";
 export async function generateMetadata() {
   const title = "Resume Website";
   const description = "This is a resume website. Create your own resume website now!";
-  const image_url = "https://firebasestorage.googleapis.com/v0/b/my-resume-website-ddda8.appspot.com/o/public%2Fthumbnail.jpg?alt=media&token=0231f8a1-43e5-4b37-a2b3-17c934b8a36f";
   const url = "https://themiddnight-resume.vercel.app/";
+  const image_url = `/api`
+  // const image_url = "https://firebasestorage.googleapis.com/v0/b/my-resume-website-ddda8.appspot.com/o/public%2Fthumbnail.jpg?alt=media&token=0231f8a1-43e5-4b37-a2b3-17c934b8a36f";
 
   return {
     title,
