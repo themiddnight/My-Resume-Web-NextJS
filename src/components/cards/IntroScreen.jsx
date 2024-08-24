@@ -47,10 +47,9 @@ export default function IntroScreen ({ children, data }) {
       </Box>
 
       <Box 
-        position={'absolute'}
-        zIndex={0}
         display={isClicked ? 'block' : 'none'}
-        mt={isEnter ? 0 : '150dvh'}
+        pt={isEnter ? 0 : '50vh'}
+        overflow={'hidden'}
         sx={{
           transition: 'all 1.5s cubic-bezier(0.5, 0, 0, 1)',
           opacity: isEnter ? 1 : 0,

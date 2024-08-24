@@ -19,6 +19,7 @@ import PublicNotesCard from "@/components/cards/PublicNotesCard";
 
 export async function generateMetadata({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
+  console.log(`Resume ID (metadata): ${resumeId}`);
   const data = await fetchResumeData(resumeId);
 
   const title = `${data.profile.title}'s ${data.summary.resume_name} - My Resume`;
@@ -44,9 +45,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function HomePage({ params }) {
+export default async function ResumePage({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
-  const data = await fetchResumeData(resumeId, "data");
+  console.log(`Resume ID (main page): ${resumeId}`);
+  const data = await fetchResumeData(resumeId);
 
   if (data.settings.layout === 0) {
     return (

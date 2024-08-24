@@ -1,4 +1,5 @@
-import { Container, Typography, Button, Divider, Stack, Box } from "@mui/material";
+import { Container, Typography, Button, Divider, Stack, Box, Chip, Avatar } from "@mui/material";
+import { GitHub } from "@mui/icons-material";
 import { NorthEastRounded } from "@mui/icons-material";
 import Link from "next/link";
 
@@ -30,19 +31,27 @@ export default function Home() {
             }}
           />
         </Box>
-          <Stack direction='column' spacing={5} justifyContent='center' height='100%' divider={<Divider flexItem/>}>
+          <Stack direction='column' spacing={3} justifyContent='center' height='100%' divider={<Divider flexItem/>}>
 
             <Stack direction='column'>
               <Typography variant="h1" component="h1" fontWeight='bold' sx={{ fontSize: { xs: 56, sm: 96} }}>
                 Greetings!
               </Typography>
               <Typography variant="h2" component="h2" lineHeight={1} gutterBottom sx={{ fontSize: { xs: 40, sm: 64} }}>
-                This is a resume website.
+                Welcome to the Resume Builder
               </Typography>
               <Typography variant="p" component="p">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem cupiditate iusto quaerat enim impedit sit modi fuga, est illo, ducimus laboriosam, harum deserunt nostrum. Cumque, labore quasi. 
+                This is a website where you can create your own resume website. And my personal project to study fullstack development.
+              </Typography>
+              <Typography variant="p" component="p">
+                Developed with Next.js, Material-UI, and Firebase as a backend.
               </Typography>
 
+              <Stack mt={3} direction='row' spacing={1}>
+                <Chip label="Figma" component='a' href="https://www.figma.com/file/jBEeCe4uuuPFp8thrfu1c8/resume-web?type=design&node-id=0-1&mode=design" size="small" clickable avatar={<Avatar src="icons/figma.svg"/>} />
+                <Chip label="GitHub (Front-End)" component='a' href="https://github.com/themiddnight/My-Resume-Web-NextJS" size="small" clickable icon={<GitHub/>} />
+                <Chip label="GitHub (Back-End)" component='a' href="https://github.com/themiddnight/My-Resume-Web-API-Firebase" size="small" clickable icon={<GitHub/>} />
+              </Stack>
             </Stack>
 
             <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ xs: 'center', sm: 'start' }} spacing={2}>

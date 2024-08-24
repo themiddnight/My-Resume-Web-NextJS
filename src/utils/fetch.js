@@ -118,17 +118,19 @@ export async function deleteUser(password) {
 // Resume API
 export async function fetchResumeData(resumeId) {
   try {
+    console.log(`Fetching resume data for ID: ${resumeId}`);
     const response = await fetch(`${apiUrl}/resume/${resumeId}?key=${frontendApiKey}`, { cache: "no-store" });
     if (response.ok) {
       const data = await response.json();
       return data;
     } else {
+      console.error(`Error fetching resume data: ${response.statusText}`);
       const responseJson = await response.json();
       throw new Error(responseJson.message);
     }
   } catch (error) {
-    console.error(error);
-    throw new Error(error);
+    console.error('Error in fetchResumeData:', error);
+    throw new Error('Internal server error');
   }
 }
 
