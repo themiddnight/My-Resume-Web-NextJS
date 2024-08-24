@@ -1,7 +1,9 @@
 import { Box, Typography } from "@mui/material";
+import Themes from '@/utils/themes';
 
 export default function EditPage() {
   return (
+    <Themes bg={{ mode: 2 }}>
     <Box
       display={"flex"}
       flexDirection={"column"}
@@ -15,5 +17,6 @@ export default function EditPage() {
         Chop chop! server!!
       </Typography>
     </Box>
+    </Themes>
   );
 }

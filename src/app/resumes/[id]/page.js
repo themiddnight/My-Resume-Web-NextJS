@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
   const title = `${data.profile.title}'s ${data.summary.resume_name} - My Resume`;
   const description = data.about.data[0].content || `Check out ${data.profile.title}'s resume!`;
   const url = `https://themiddnight-resume.vercel.app/resumes/${resumeId}`;
-  const image_url = `/api?title=${data.profile.title}&subtitle=${data.summary.resume_name}`
+  const image_url = `/api/ogimage?title=${data.profile.title}&subtitle=${data.summary.resume_name}`
 
   return {
     title,
@@ -51,8 +51,8 @@ export default async function HomePage({ params }) {
   if (data.settings.layout === 0) {
     return (
       <Themes bg={data.settings.background}>
-        <IntroScreen data={data.settings} />
         <main>
+        <IntroScreen data={data.settings}>
           <Container maxWidth="xl" sx={{ py: {xs: 2, sm: 3, xl: 8} }}>
             <Box display="grid" gridTemplateColumns="repeat(10, 1fr)" gap={2.5}>
               <Box
@@ -84,6 +84,7 @@ export default async function HomePage({ params }) {
               </Box>
             </Box>
           </Container>
+        </IntroScreen>
         </main>
         {/* <ImageModal /> */}
       </Themes>
@@ -92,8 +93,8 @@ export default async function HomePage({ params }) {
 
   return (
     <Themes bg={data.settings.background}>
-      <IntroScreen data={data.settings} />
       <main>
+      <IntroScreen data={data.settings}>
         <Container maxWidth="xl" sx={{ py: {xs: 2, sm: 3, xl: 8} }}>
           <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2.5}>
             <Box
@@ -148,6 +149,7 @@ export default async function HomePage({ params }) {
             </Box>
           </Box>
         </Container>
+      </IntroScreen>
       </main>
       {/* <ImageModal /> */}
     </Themes>
