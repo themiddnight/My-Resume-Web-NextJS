@@ -27,7 +27,7 @@ export default function IntroScreen ({ children, data }) {
         justifyContent={'center'}
         className={"basic-bg"}
         sx={{
-          transition: 'all 1.5s cubic-bezier(0.5, 0, 0, 1)',
+          transition: 'all 1s cubic-bezier(0.5, 0, 0, 1)',
         }}
       >
         <Box textAlign={'center'} className={!isClicked ? "intro-in__text" : "intro-out__text"}>
