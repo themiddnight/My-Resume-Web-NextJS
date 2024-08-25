@@ -6,7 +6,7 @@ import { TransitionGroup } from "react-transition-group";
 import { useState, useEffect } from "react";
 // import Image from "next/image";
 
-import { Image } from "../styled/Image";
+import { NextImage } from "../styled/Image";
 import CardHeader from "../elements/CardHeader";
 import { convertDate } from "../../utils/utils";
 import MoreButtonSection from "../elements/MoreButton";
@@ -156,7 +156,7 @@ const ProjectContent = ({ data, display_mode }) => {
               width={"100%"}
               height={"100%"}
             >
-              <Image
+              <NextImage
                 src={`${data.image_url}`}
                 width={"100%"}
                 height={"100%"}

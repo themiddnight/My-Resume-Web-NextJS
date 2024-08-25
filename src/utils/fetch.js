@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 const frontendApiKey = process.env.NEXT_PUBLIC_API_KEY;
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -116,7 +118,7 @@ export async function deleteUser(password) {
 }
 
 // Resume API
-export async function fetchResumeData(resumeId) {
+export const fetchResumeData = cache(async (resumeId) => {
   try {
     console.log(`Fetching resume data for ID: ${resumeId}`);
     const response = await fetch(`${apiUrl}/resume/${resumeId}?key=${frontendApiKey}`, { cache: "no-store" });
@@ -132,7 +134,7 @@ export async function fetchResumeData(resumeId) {
     console.error('Error in fetchResumeData:', error);
     throw new Error('Internal server error');
   }
-}
+});
 
 // Resume data API
 export async function fetchResumeSummary(resumeId) {

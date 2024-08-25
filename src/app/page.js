@@ -2,6 +2,7 @@ import { Container, Typography, Button, Divider, Stack, Box, Chip, Avatar } from
 import { GitHub } from "@mui/icons-material";
 import { NorthEastRounded } from "@mui/icons-material";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           position={'absolute'} 
           top={'50%'}
           left={'33%'} 
-          // width={'100%'}
+          width={'100%'}
           height={'80dvh'}
           zIndex={-1}
           borderRadius={'20px 0 0 20px'}
@@ -20,9 +21,10 @@ export default function Home() {
             transform: 'translateY(-50%)',
           }}
         >
-          <img 
-            src="images/hero_bg_simplify.webp" 
+          <Image 
+            src="/images/hero_bg_simplify.webp" 
             alt="background" 
+            layout="fill"
             style={{ 
               width: '100%', 
               height: '100%',
@@ -58,7 +60,7 @@ export default function Home() {
               <Link href="resumes/themiddnight-dev">
                 <Button variant="contained" size='large'>View My Resume</Button>
               </Link>
-              <Link href="/create">
+              <Link href="https://themiddnight.github.io/#/create" target="_blank">
                 <Button variant='outlined' size='large' endIcon={<NorthEastRounded/>}>Create Yours</Button>
               </Link>
             </Stack>

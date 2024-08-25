@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                 <Button variant="text" color="primary" size="small" sx={{ px: 2 }}>Home</Button>
               </Link>
               <Divider orientation="vertical" flexItem />
-              <Link href='/create' passHref>
+              <Link href='https://themiddnight.github.io/#/create' passHref target="_blank">
                 <Button variant="text" color="primary" size="small" sx={{ px: 2 }}>Create Yours</Button>
               </Link>
             </Box>

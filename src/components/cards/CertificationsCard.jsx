@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 // import Image from "next/image";
 
 import { convertDate } from "../../utils/utils";
-import { Image } from "../styled/Image";
+import { NextImage } from "../styled/Image";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
@@ -82,7 +82,7 @@ export default function CertificationsCard({ data }) {
                     "&:hover": { transform: "scale(1.1)" },
                   }}
                 >
-                  <Image
+                  <NextImage
                     src={`${cert.image_url}`}
                     alt={cert.title}
                     width="100%"

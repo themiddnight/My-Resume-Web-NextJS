@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 // import Image from "next/image";
 
-import { Image } from "../styled/Image";
+import { NextImage } from "../styled/Image";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
 
@@ -59,7 +59,7 @@ export default function SkillsCard({ data }) {
                   height={iconSize}
                   sx={{ marginInlineEnd: 2 }}
                 >
-                  <Image
+                  <NextImage
                     src={`${item.image_url}`}
                     alt={item.title}
                     width={iconSize}
