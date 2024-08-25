@@ -52,7 +52,7 @@ export default function IntroScreen ({ children, data }) {
         overflow={'hidden'}
         sx={{
           transition: 'all 1.5s cubic-bezier(0.5, 0, 0, 1)',
-          opacity: isEnter ? 1 : 0,
+          // opacity: isEnter ? 1 : 0,
         }}
       >
         {children}

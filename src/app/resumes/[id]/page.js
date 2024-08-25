@@ -18,18 +18,10 @@ import OtherProfileCard from "@/components/cards/OtherProfileCard";
 import PublicNotesCard from "@/components/cards/PublicNotesCard";
 // import ImageModal from "@/components/modals/ImageModal";
 
-// export async function getServerSideProps({ params }) {
-//   const resumeId = params.id || 'themiddnight-dev'
-//   console.log(`Resume ID (server side props): ${resumeId}`);
-//   const data = await fetchResumeData(resumeId);
-//   return data;
-// }
-
 export async function generateMetadata({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
   console.log(`Resume ID (metadata): ${resumeId}`);
   const data = await fetchResumeData(resumeId);
-  // const data = await getServerSideProps({ params });
 
   const title = `${data.profile.title}'s ${data.summary.resume_name} - My Resume`;
   const description = data.about.data[0].content || `Check out ${data.profile.title}'s resume!`;
@@ -58,7 +50,6 @@ export default async function ResumePage({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
   console.log(`Resume ID (main page): ${resumeId}`);
   const data = await fetchResumeData(resumeId);
-  // const data = await getServerSideProps({ params });
 
   if (data.settings.layout === 0) {
     return (

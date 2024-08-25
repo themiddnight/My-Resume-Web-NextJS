@@ -27,6 +27,19 @@ export default function PublicNotesCard({ resumeId, data }) {
   const [newPostedId, setNewPostedId] = useState("");
   // const [noteHeight, setNoteHeight] = useState(30);
 
+  const msgPlaceholders = [
+    "Say something awesome...",
+    "What's on your mind?",
+    "Share your thoughts here...",
+    "Got something to share?",
+    "Join the conversation...",
+    "Start a new chat...",
+    "Express yourself...",
+    "Type your message...",
+    "Let's chat!",
+    "Your message goes here..."
+  ]
+
   async function handleSend() {
     setIsPosted(false);
     setIsPosting(true);
@@ -120,7 +133,7 @@ export default function PublicNotesCard({ resumeId, data }) {
         <Box display={"flex"} alignItems={"center"} alignContent={"center"} sx={{ mx: { xs: -1, sm: 0 }}}>
           <TextField
             fullWidth
-            label="Say hi!"
+            label={msgPlaceholders[Math.floor(Math.random() * msgPlaceholders.length)]}
             variant="outlined"
             margin="normal"
             size="small"
