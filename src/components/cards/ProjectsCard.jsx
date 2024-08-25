@@ -3,7 +3,7 @@ import { Box, Card, CardContent, Link, Typography, Chip, Divider, Collapse } fro
 import { OpenInNew, AppsRounded } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import { TransitionGroup } from "react-transition-group";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 // import Image from "next/image";
 
 import { NextImage } from "../styled/Image";
@@ -17,6 +17,53 @@ export default function ProjectsCard({ data }) {
   const [isLimit, setIsLimit] = useState(true);
   // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
+  
+  const sliderRef = useRef(null);
+  const [isMouseUsed, setIsMouseUsed] = useState(false);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    function handleMouseDown(e) {
+      setIsDown(true);
+      setIsMouseUsed(true);
+      setStartX(e.pageX - slider.offsetLeft);
+      setScrollLeft(slider.scrollLeft);
+    }
+
+    function handleMouseLeave() {
+      setIsDown(false);
+      setIsMouseUsed(false);
+    }
+
+    function handleMouseUp() {
+      setIsDown(false);
+    }
+
+    function handleMouseMove(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX);
+      slider.scrollLeft = scrollLeft - walk;
+    }
+
+    slider.addEventListener("mousedown", handleMouseDown);
+    slider.addEventListener("mouseleave", handleMouseLeave);
+    slider.addEventListener("mouseup", handleMouseUp);
+    slider.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      slider.removeEventListener("mousedown", handleMouseDown);
+      slider.removeEventListener("mouseleave", handleMouseLeave);
+      slider.removeEventListener("mouseup", handleMouseUp);
+      slider.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [isDown, startX, scrollLeft]); 
 
   // useEffect(() => {
   //   setActiveData(data.data.filter(item => item.active));
@@ -86,7 +133,9 @@ export default function ProjectsCard({ data }) {
           sx={{
             overflowX: "scroll",
             overflowY: "visible",
-            scrollSnapType: "x mandatory",
+            scrollSnapType: isMouseUsed ? "none" : "x mandatory",
+            cursor: isDown ? "grabbing" : "default",
+            // userSelect: isDown ? "none" : "auto",
             maskImage: { 
               xs: "none",
               sm: `
@@ -99,6 +148,7 @@ export default function ProjectsCard({ data }) {
                 )`,
             },
           }}
+          ref={sliderRef}
         >
           {data.data.map((project, index) => (
             <Box
