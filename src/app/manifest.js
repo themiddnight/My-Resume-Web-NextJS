@@ -5,6 +5,7 @@ export default function manifest() {
     description: 'This is a resume website. Create your own resume website now!',
     start_url: 'https://themiddnight-resume.vercel.app/',
     display: 'standalone',
+    theme_color: '#000000',
     icons: [
       {
         src: '/favicon.ico',

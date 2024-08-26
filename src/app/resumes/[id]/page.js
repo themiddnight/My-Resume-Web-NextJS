@@ -112,7 +112,6 @@ export default async function ResumePage({ params }) {
               {data.education.active && <Box><EducationCard data={data.education} /></Box>}
               {data.languages.active && <Box display={{ xs:'none', sm: 'block', lg: 'none' }}><LanguagesCard data={data.languages} /></Box>}
               {data.other_links.active && <Box display={{ xs: 'none', sm: 'block', lg: 'none' }}><OtherProfileCard data={data.other_links} /></Box>}
-              {data.public_notes.active && <Box display={{ xs: 'none', sm: 'block', lg: 'block' }}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
             </Box>
 
             <Box
@@ -144,7 +143,7 @@ export default async function ResumePage({ params }) {
                   {data.languages.active && <Box display={{ xs: 'block', sm: 'none', lg: 'none' }}><LanguagesCard data={data.languages} /></Box>}
                   {data.certifications.active && <Box><CertificationsCard data={data.certifications} /></Box>}
                   {data.other_links.active && <Box display={{ xs: 'block', sm: 'none', lg: 'block' }}><OtherProfileCard data={data.other_links} /></Box>}
-                  {data.public_notes.active && <Box display={{ xs: 'block', sm: 'none', lg: 'none' }}><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
+                  {data.public_notes.active && <Box><PublicNotesCard resumeId={resumeId} data={data.public_notes} /></Box>}
                 </Box>
                 
               </Box>
