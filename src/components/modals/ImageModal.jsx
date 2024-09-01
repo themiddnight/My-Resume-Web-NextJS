@@ -2,6 +2,7 @@
 import { Box, Modal, Fade } from "@mui/material";
 import { useContext } from "react";
 import { ModalContext } from "@/utils/contexts";
+import Image from "next/image";
 
 export default function ImageModal() {
   const { isImageModalOpen, setIsImageModalOpen, imageModalSrc } = useContext(ModalContext);
@@ -26,12 +27,12 @@ export default function ImageModal() {
           borderRadius={{ sm: 0, md: 1 }}
           overflow={"hidden"}
           boxShadow={10}
-          position={'absolute'}
           display={"flex"}
           alignItems={"center"}
           justifyContent={"center"}
         >
           <img src={imageModalSrc} alt="modal" width={"100%"} height={"100%"} />
+          {/* <Image src={imageModalSrc} alt="modal" fill style={{ objectFit: 'contain' }} /> */}
         </Box>
       </Fade>
     </Modal>

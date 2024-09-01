@@ -25,10 +25,8 @@ export default function CertificationsCard({ data }) {
   // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
   const [limitedData, setLimitedData] = useState(activeData.slice(0, data.display_limit));
 
-  function handleOpenModal(e) {
-    e.preventDefault();
-    // console.log("Image clicked");
-    setImageModalSrc(e.target.src);
+  function handleOpenModal(src) {
+    setImageModalSrc(src);
     setIsImageModalOpen(true);
   }
 
@@ -76,7 +74,7 @@ export default function CertificationsCard({ data }) {
                   justifyContent={"center"}
                   borderRadius={"5px"}
                   overflow={"hidden"}
-                  onClick={handleOpenModal}
+                  onClick={() => handleOpenModal(cert.image_url)}
                   sx={{
                     position: "relative",
                     cursor: "pointer",
