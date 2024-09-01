@@ -22,7 +22,7 @@ export default function EducationCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <SchoolRounded fontSize="large" />

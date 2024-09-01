@@ -116,7 +116,7 @@ export default function CollectionsCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <CategoryRounded fontSize="large" />

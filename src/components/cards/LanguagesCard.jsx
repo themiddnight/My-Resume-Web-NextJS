@@ -62,7 +62,7 @@ export default function LanguagesCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <PublicRounded fontSize="large" />

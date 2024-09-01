@@ -9,15 +9,17 @@ import {
 } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 import { CardMembershipRounded } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 // import Image from "next/image";
 
 import { convertDate } from "../../utils/utils";
 import { NextImage } from "../styled/Image";
 import CardHeader from "../elements/CardHeader";
 import MoreButtonSection from "../elements/MoreButton";
+import { ModalContext } from "@/utils/contexts";
 
 export default function CertificationsCard({ data }) {
+  const { setIsImageModalOpen, setImageModalSrc } = useContext(ModalContext);
   const activeData = data.data.filter(item => item.active);
   const [isLimit, setIsLimit] = useState(true);
   // const [activeData, setActiveData] = useState(data.data.filter(item => item.active));
@@ -25,9 +27,9 @@ export default function CertificationsCard({ data }) {
 
   function handleOpenModal(e) {
     e.preventDefault();
-    console.log("Image clicked");
-    // setImageModalSrc(e.target.src);
-    // setIsImageModalOpen(true);
+    // console.log("Image clicked");
+    setImageModalSrc(e.target.src);
+    setIsImageModalOpen(true);
   }
 
   // useEffect(() => {
@@ -39,7 +41,7 @@ export default function CertificationsCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader
           sx={{ paddingBlockEnd: 1 }}

@@ -37,7 +37,7 @@ const LinkIcon = (title) => {
 
 export default function ProfileCard({ data = {} }) {
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <Box
           sx={{

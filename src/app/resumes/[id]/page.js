@@ -16,7 +16,7 @@ import CertificationsCard from "@/components/cards/CertificationsCard";
 import LanguagesCard from "@/components/cards/LanguagesCard";
 import OtherProfileCard from "@/components/cards/OtherProfileCard";
 import PublicNotesCard from "@/components/cards/PublicNotesCard";
-// import ImageModal from "@/components/modals/ImageModal";
+import ImageModal from "@/components/modals/ImageModal";
 
 export async function generateMetadata({ params }) {
   const resumeId = params.id || 'themiddnight-dev'
@@ -89,7 +89,7 @@ export default async function ResumePage({ params }) {
           </Container>
         </IntroScreen>
         </main>
-        {/* <ImageModal /> */}
+        <ImageModal />
       </Themes>
     )
   } 
@@ -153,7 +153,7 @@ export default async function ResumePage({ params }) {
         </Container>
       </IntroScreen>
       </main>
-      {/* <ImageModal /> */}
+      <ImageModal />
     </Themes>
   );
 }

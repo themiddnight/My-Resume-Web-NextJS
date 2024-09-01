@@ -14,7 +14,7 @@ export default function IntroScreen ({ children, data }) {
   }
 
   return (
-    <Box>
+    <Box component={'section'}>
       <Box
         position={'absolute'}
         zIndex={10}

@@ -2,9 +2,11 @@ import { Box, Divider, Typography, Button, Container } from "@mui/material"
 import { HomeRounded, DriveFileRenameOutlineRounded } from "@mui/icons-material"
 import Link from "next/link"
 
+import { ModalContexts } from "@/utils/contexts"
+
 export default function Layout({ children }) {
   return (
-    <>
+    <ModalContexts>
       {children}
       <Container maxWidth="xl" component='footer'>
         <Divider />
@@ -36,6 +38,6 @@ export default function Layout({ children }) {
           </Box>
         </Box>
       </Container>
-    </>
+    </ModalContexts>
   )
 }

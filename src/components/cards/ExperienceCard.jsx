@@ -23,7 +23,7 @@ export default function ExperienceCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <WorkRounded fontSize="large" />

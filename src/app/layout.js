@@ -4,8 +4,8 @@ import "./globals.css";
 import Themes from '@/utils/themes';
 
 export async function generateMetadata() {
-  const title = "Resume Website";
-  const description = "This is a resume website. Create your own resume website now!";
+  const title = "Middnight-Resume Website";
+  const description = "This is a website where you can create your own resume website. And my personal project to study fullstack development.";
   const url = "https://themiddnight-resume.vercel.app/";
   const image_url = `/api/ogimage`;
 

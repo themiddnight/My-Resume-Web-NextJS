@@ -67,7 +67,7 @@ export default function PublicNotesCard({ resumeId, data }) {
   // }, [notesData]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <CampaignRounded fontSize="large" />

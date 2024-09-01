@@ -26,7 +26,7 @@ export default function OtherProfileCard({ data }) {
   // }, [isLimit, data.data, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <LinkRounded fontSize="large" />

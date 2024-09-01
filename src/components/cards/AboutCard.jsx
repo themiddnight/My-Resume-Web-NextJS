@@ -5,7 +5,7 @@ import CardHeader from "../elements/CardHeader";
 
 export default function AboutCard({ data = {} }) {
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <PersonRounded fontSize="large" />

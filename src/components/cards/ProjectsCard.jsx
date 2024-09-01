@@ -74,7 +74,7 @@ export default function ProjectsCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <AppsRounded fontSize="large" />

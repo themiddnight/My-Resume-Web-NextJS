@@ -1,11 +1,12 @@
+'use client';
 import { useState, createContext } from "react";
 
 export const ModalContext = createContext();
+export const AuthContext = createContext();
 
-export default function Contexts({ children }) {
+export function ModalContexts({ children }) {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [imageModalSrc, setImageModalSrc] = useState("");
-  const [authToken, setAuthToken] = useState("");
 
   return (
     <ModalContext.Provider
@@ -14,11 +15,19 @@ export default function Contexts({ children }) {
         setIsImageModalOpen,
         imageModalSrc,
         setImageModalSrc,
-        authToken,
-        setAuthToken,
       }}
     >
       {children}
     </ModalContext.Provider>
+  );
+}
+
+export function AuthContexts({ children }) {
+  const [authToken, setAuthToken] = useState("");
+
+  return (
+    <AuthContext.Provider value={{ authToken, setAuthToken }}>
+      {children}
+    </AuthContext.Provider>
   );
 }

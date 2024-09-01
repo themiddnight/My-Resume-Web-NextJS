@@ -33,7 +33,7 @@ export default function SkillsCard({ data }) {
   // }, [isLimit, activeData, data.display_limit]);
 
   return (
-    <Card>
+    <Card component={'section'}>
       <CardContent>
         <CardHeader>
           <TipsAndUpdatesRounded fontSize="large" />

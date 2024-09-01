@@ -1,3 +1,4 @@
+'use client';
 import { Box, Modal, Fade } from "@mui/material";
 import { useContext } from "react";
 import { ModalContext } from "@/utils/contexts";
