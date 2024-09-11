@@ -19,22 +19,24 @@ export default function Themes({ children, bg = {} }) {
   const memoTheme = useMemo(() => {
     const originalDarkBg = "#1d1d1d";
     const originalLightBg = "#eeeeee";
-    let bgImage;
+    const bgAttr = {};
     // prepare for custon bg color in the future
     let darkBg = originalDarkBg;
     let lightBg = originalLightBg;
 
     if (bg.mode === 1) {
-      bgImage = `
+      bgAttr.backgroundImage = `
       linear-gradient(
         to bottom, transparent 20%, 
         ${prefersDarkMode ? darkBg : lightBg} 95%
       ) 
       ${generateMeshStyle()}`;
     } else if (bg.mode === 2) {
-      bgImage = `url(${bg.image_url})`;
+      bgAttr.backgroundImage = `url(${bg.image_url})`;
+      bgAttr.backgroundColor = prefersDarkMode ? darkBg : lightBg;
     } else {
-      bgImage = prefersDarkMode ? darkBg : lightBg;
+      bgAttr.backgroundImage = "none";
+      bgAttr.backgroundColor = prefersDarkMode ? darkBg : lightBg;
     }
 
 
@@ -97,8 +99,9 @@ export default function Themes({ children, bg = {} }) {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundAttachment: "fixed",
-              backgroundImage: bgImage,
               backgroundPosition: "center",
+              // backgroundImage: bgImage,
+              ...bgAttr,
             },
           },
         },

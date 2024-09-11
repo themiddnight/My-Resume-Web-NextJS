@@ -2,7 +2,7 @@
 import { Box, Modal, Fade } from "@mui/material";
 import { useContext } from "react";
 import { ModalContext } from "@/utils/contexts";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function ImageModal() {
   const { isImageModalOpen, setIsImageModalOpen, imageModalSrc } = useContext(ModalContext);

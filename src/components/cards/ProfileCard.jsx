@@ -117,7 +117,11 @@ export default function ProfileCard({ data = {} }) {
               <ListItemIcon>
                 {LinkIcon(link.title)}
               </ListItemIcon>
-              <Link href={link.url} target={"_blank"} sx={{ paddingBlock: "5px" }}>
+              <Link 
+                href={link.url.startsWith("https://") ? link.url : `https://${link.url}`}
+                target={"_blank"} 
+                sx={{ paddingBlock: "5px" }}
+              >
                 {link.title}
               </Link>
             </ListItem>

@@ -99,7 +99,7 @@ export default function PublicNotesCard({ resumeId, data }) {
           {notesData.map((item, index) => (
             <Box key={index} ref={noteRef} position={'relative'} display={'flex'} flexDirection={'column'}>
               {index === 0 && 
-                <Box position={'absolute'} top={'50%'} left={'50%'} sx={{ transform: 'translate(-50%, -50%)' }}>
+                <Box position={'absolute'} top={'50%'} left={'50%'} zIndex={100} sx={{ transform: 'translate(-50%, -50%)' }}>
                   {isPosted && <ConfettiExplosion zIndex={100} force={0.2} particleCount={20} particleSize={10} duration={2000} />}
                 </Box>
               }
@@ -221,7 +221,7 @@ function DeleteButton({ isPosted, handleDelete, newestPostId }) {
           p: 0, m: 0, 
           position: 'absolute', 
           right: 20,
-          top: 20,
+          top: 13,
           zIndex: 1,
         }}
         onClick={() => handleClick(newestPostId)}
